@@ -34,6 +34,7 @@ public class ObserverPatternTest
         // Set up Key Pad and Pin Entry Machine
         keypad = new KeyPad();
         pinEntryMachine = new PinEntryMachine();
+        keypad.attach(pinEntryMachine);
         // Using Observer Pattern  
     }
 
@@ -43,7 +44,6 @@ public class ObserverPatternTest
     {
         // Key Pad Press 1
         keypad.touch(1,5);
-        pinEntryMachine.setStateOnePinDigit("1");
 
         // Assert D1 is "1" (replace with appropriate test)
         //assertTrue( false ) ;
@@ -55,12 +55,8 @@ public class ObserverPatternTest
     {
         // Key Pad Press 1 and 2
         keypad.touch(1,5);
-        pinEntryMachine.setStateOnePinDigit("1");
         keypad.touch(2,5);
-        pinEntryMachine.setStateTwoPinDigits("2");
-        System.out.println("======================================");
-        System.out.println(pinEntryMachine.d1());
-        System.out.println("======================================");
+       
         // Assert D1 and D2 are correct 
         // (replace with appropriate test)
         //assertTrue( false ) ;
@@ -82,9 +78,7 @@ public class ObserverPatternTest
         keypad.touch(1,5);
         keypad.touch(2,5);
         keypad.touch(3,5);
-        pinEntryMachine.setStateOnePinDigit("1");
-        pinEntryMachine.setStateTwoPinDigits("2");
-        pinEntryMachine.setStateThreePinDigits("3");
+        
         // Assert D1 is "1" (replace with appropriate test)
         //assertTrue( false ) ;
         assertTrue(pinEntryMachine.d1().equals("1"));
@@ -103,10 +97,7 @@ public class ObserverPatternTest
         keypad.touch(2,5);
         keypad.touch(3,5);
         keypad.touch(1,6);
-        pinEntryMachine.setStateOnePinDigit("1");
-        pinEntryMachine.setStateTwoPinDigits("2");
-        pinEntryMachine.setStateThreePinDigits("3");
-        pinEntryMachine.setStateFourPinDigits("4");
+        
         // Assert D1 is "1" (replace with appropriate test)
         //assertTrue( false ) ;
         assertTrue(pinEntryMachine.d1().equals("1"));
@@ -128,10 +119,7 @@ public class ObserverPatternTest
         keypad.touch(2,5);
         keypad.touch(3,5);
         keypad.touch(1,6);
-        pinEntryMachine.setStateOnePinDigit("1");
-        pinEntryMachine.setStateTwoPinDigits("2");
-        pinEntryMachine.setStateThreePinDigits("3");
-        pinEntryMachine.setStateFourPinDigits("4");
+        
         // Assert D1 is "1" (replace with appropriate test)
         //assertTrue( false ) ;
         assertTrue(pinEntryMachine.d1().equals("1"));
@@ -143,7 +131,6 @@ public class ObserverPatternTest
 
         // Key Pad Press 1, 2, 3 and 4 and then backspace
         keypad.touch(3,8);
-        pinEntryMachine.backspace();
 
         assertTrue(pinEntryMachine.d1().equals("1"));
         assertTrue(pinEntryMachine.d2().equals("2"));
