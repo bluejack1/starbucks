@@ -18,6 +18,7 @@ import org.junit.Test;
 public class CommandPatternTest
 {
     IApp app ;
+    KeyPad kp ;
     
     /**
      * Default constructor for test class CommandPatternTest
@@ -42,7 +43,14 @@ public class CommandPatternTest
     public void testMyCards()
     {
         // Login with pin
-
+    	
+    	    app.touch(1,5) ;
+		app.touch(2,5) ;
+		app.touch(3,5) ;
+		app.touch(1,6) ;
+		
+		app.execute("A");
+	
         // Select Menu "A"
  
         // Assertion
@@ -55,6 +63,13 @@ public class CommandPatternTest
         // Login with pin
 
         // Select Menu "B"
+    	
+    	app.touch(1,5) ;
+		app.touch(2,5) ;
+		app.touch(3,5) ;
+		app.touch(1,6) ;
+		
+		app.execute("B");
  
         // Assertion
         assertEquals("Payments", app.screen());            
@@ -67,6 +82,13 @@ public class CommandPatternTest
         // Login with pin
 
         // Select Menu "C"
+        
+        app.touch(1,5) ;
+		app.touch(2,5) ;
+		app.touch(3,5) ;
+		app.touch(1,6) ;
+		
+		app.execute("C");
  
         // Assertion 
         assertEquals("Rewards", app.screen());            
@@ -78,6 +100,13 @@ public class CommandPatternTest
         // Login with pin
 
         // Select Menu "D"
+	  
+	  app.touch(1,5) ;
+		app.touch(2,5) ;
+		app.touch(3,5) ;
+		app.touch(1,6) ;
+		
+		app.execute("D");
  
         // Assertion 
         assertEquals("Store", app.screen());            
