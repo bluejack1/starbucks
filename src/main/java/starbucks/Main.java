@@ -13,6 +13,11 @@ public class Main
 		app.touch(2,5) ;
 		app.touch(3,5) ;
 		app.touch(1,6) ;
+		
+		app.execute("A");
+		
+		System.out.println(app.screen());
+		
 		app.display() ;
 
     }
